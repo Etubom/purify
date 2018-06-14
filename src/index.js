@@ -50,10 +50,18 @@ function concatNames(names) {
 // things is an array of numbers and strings. Convert
 // numbers in array to strings. For example 5 to "5"
 function numbersToStrings(things) {
-  for (var i = 0; i < things.length; i++) {
-    things[i] = typeof things[i] === "number" ? things[i] + "" : things[i];
-  }
+  return things.map(function(str) {
+    return (str = typeof str === "number" ? str + "" : str);
+  });
 }
+
+// function numbersToStrings(things) {
+//   for (var i = 0; i < things.length; i++) {
+//     things[i] = typeof things[i] === "number" ? things[i] + "" : things[i];
+//   }
+
+//   return things;
+// }
 
 // strings is an array of strings. sort them by length
 function sortByLength(strings) {
@@ -172,5 +180,6 @@ function parseDates(dates) {
 module.exports = {
   multiply,
   absolute,
-  concatNames
+  concatNames,
+  numbersToStrings
 };

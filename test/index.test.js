@@ -1,4 +1,9 @@
-const { multiply, absolute, concatNames } = require("../src/index.js");
+const {
+  multiply,
+  absolute,
+  concatNames,
+  numbersToStrings
+} = require("../src/index.js");
 
 describe("multiply", function() {
   const arrayA = [1, 2, 3];
@@ -59,6 +64,21 @@ describe("concatNames", function() {
     expect(arrayA).toEqual(arrayAClone);
   });
   it("concat names correctly", () => {
+    expect(result).toEqual(expected);
+  });
+});
+
+describe.only("numbersToStrings", function() {
+  const arrayA = ["2", "1", 21, 4];
+  const arrayAClone = [...arrayA];
+
+  const expected = ["2", "1", "21", "4"];
+  const result = numbersToStrings(arrayA);
+
+  it("preserves the input", () => {
+    expect(arrayA).toEqual(arrayAClone);
+  });
+  it("convert numbers to strings correctly", () => {
     expect(result).toEqual(expected);
   });
 });
