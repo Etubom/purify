@@ -84,11 +84,24 @@ function lastTwo(numbers) {
 //   year: 1992
 // }
 // increment the years by one year for all cars
+// function incrementYear(cars) {
+//   for (var i = 0; i < cars.length; i++) {
+//     cars[i].year++;
+//   }
+//   return cars;
+// }
+
+// function incrementYear(cars) {
+//   for (var i = 0; i < cars.length; i++) {
+//     cars[i].year++;
+//   }
+//   return cars;
+// }
+
 function incrementYear(cars) {
-  for (var i = 0; i < cars.length; i++) {
-    cars[i].year++;
-  }
-  return cars;
+  return cars.map(function(car) {
+    return Object.assign({}, car, { year: car.year + 1 });
+  });
 }
 
 // sales is an object where the key is
@@ -181,5 +194,6 @@ module.exports = {
   multiply,
   absolute,
   concatNames,
-  numbersToStrings
+  numbersToStrings,
+  incrementYear
 };

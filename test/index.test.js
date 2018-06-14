@@ -2,7 +2,8 @@ const {
   multiply,
   absolute,
   concatNames,
-  numbersToStrings
+  numbersToStrings,
+  incrementYear
 } = require("../src/index.js");
 
 describe("multiply", function() {
@@ -68,7 +69,7 @@ describe("concatNames", function() {
   });
 });
 
-describe.only("numbersToStrings", function() {
+describe("numbersToStrings", function() {
   const arrayA = ["2", "1", 21, 4];
   const arrayAClone = [...arrayA];
 
@@ -79,6 +80,39 @@ describe.only("numbersToStrings", function() {
     expect(arrayA).toEqual(arrayAClone);
   });
   it("convert numbers to strings correctly", () => {
+    expect(result).toEqual(expected);
+  });
+});
+
+describe.only("incrementYear", function() {
+  const arrayA = [
+    {
+      make: "Vauxhall",
+      model: "Astra",
+      year: 1992
+    }
+  ];
+  const arrayAClone = [
+    {
+      make: "Vauxhall",
+      model: "Astra",
+      year: 1992
+    }
+  ];
+
+  const expected = [
+    {
+      make: "Vauxhall",
+      model: "Astra",
+      year: 1993
+    }
+  ];
+  const result = incrementYear(arrayA);
+
+  it("preserves the input", () => {
+    expect(arrayA).toEqual(arrayAClone);
+  });
+  it("Updating years correctly", () => {
     expect(result).toEqual(expected);
   });
 });
