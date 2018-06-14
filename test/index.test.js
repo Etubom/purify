@@ -1,4 +1,4 @@
-const { multiply, absolute } = require("../src/index.js");
+const { multiply, absolute, concatNames } = require("../src/index.js");
 
 describe("multiply", function() {
   const arrayA = [1, 2, 3];
@@ -30,7 +30,35 @@ describe("absolute", function() {
     expect(arrayA).toEqual(arrayAClone);
   });
 
-  it("multiplies correctly", () => {
+  it("converts to positive correctly", () => {
+    expect(result).toEqual(expected);
+  });
+});
+
+describe("concatNames", function() {
+  const arrayA = [
+    {
+      firstName: "Alan",
+      lastName: "Sugar"
+    },
+    {
+      firstName: "Alan1",
+      lastName: "Sugar1"
+    },
+    {
+      firstName: "Alan2",
+      lastName: "Sugar2"
+    }
+  ];
+  const arrayAClone = [...arrayA];
+
+  const expected = ["Alan Sugar", "Alan1 Sugar1", "Alan2 Sugar2"];
+  const result = concatNames(arrayA);
+
+  it("preserves the input", () => {
+    expect(arrayA).toEqual(arrayAClone);
+  });
+  it("concat names correctly", () => {
     expect(result).toEqual(expected);
   });
 });

@@ -32,14 +32,20 @@ function absolute(numbers) {
 //   firstName: 'Alan',
 //   lastName: 'Sugar'
 // }
+
 // concatenate first and last names and return
 // resulting array of names
 function concatNames(names) {
-  for (var i = 0; i < names.length; i++) {
-    names[i] = `${names[i].firstName} ${names[i].lastName}`;
-  }
-  return names;
+  return names.map(function(item) {
+    return item.firstName + " " + item.lastName;
+  });
 }
+// function concatNames(names) {
+//   for (var i = 0; i < names.length; i++) {
+//     names[i] = `${names[i].firstName} ${names[i].lastName}`;
+//   }
+//   return names;
+// }
 
 // things is an array of numbers and strings. Convert
 // numbers in array to strings. For example 5 to "5"
@@ -165,5 +171,6 @@ function parseDates(dates) {
 
 module.exports = {
   multiply,
-  absolute
+  absolute,
+  concatNames
 };
